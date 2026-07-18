@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>月相日历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #86868b;
+        }
+
+        .date-picker {
+            margin-bottom: 30px;
+        }
+
+        .date-picker label {
+            display: block;
+            font-size: 14px;
+            color: #86868b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .date-picker input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 16px;
+            border: 1px solid #e5e5e7;
+            border-radius: 10px;
+            font-family: inherit;
+            color: #1d1d1f;
+            transition: border-color 0.2s;
+        }
+
+        .date-picker input:focus {
+            outline: none;
+            border-color: #0071e3;
+        }
+
+        .info-section {
+            background: #f5f5f7;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 16px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            font-size: 18px;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .moon-section {
+            text-align: center;
+            background: #f5f5f7;
+            border-radius: 16px;
+            padding: 30px 24px;
+        }
+
+        .moon-label {
+            font-size: 12px;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .moon-display {
+            font-size: 80px;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .moon-name {
+            font-size: 16px;
+            color: #1d1d1f;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .moon-description {
+            font-size: 13px;
+            color: #86868b;
+        }
+
+        .divider {
+            height: 1px;
+            background: #e5e5e7;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">月相日历</div>
+            <div class="subtitle">查看任何日期的月相信息</div>
+        </div>
+
+        <div class="date-picker">
+            <label for="dateInput">选择日期</label>
+            <input type="date" id="dateInput">
+        </div>
+
+        <div class="info-section">
+            <div class="info-item">
+                <div class="info-label">公历日期</div>
+                <div class="info-value" id="gregorianDate">-</div>
+            </div>
+            <div class="divider"></div>
+            <div class="info-item">
+                <div class="info-label">农历日期</div>
+                <div class="info-value" id="lunarDate">-</div>
+            </div>
+        </div>
+
+        <div class="moon-section">
+            <div class="moon-label">月相</div>
+            <div class="moon-display" id="moonEmoji">🌕</div>
+            <div class="moon-name" id="moonName">满月</div>
+            <div class="moon-description" id="moonDescription">月球照亮面积：100%</div>
+        </div>
+    </div>
+
+    <script src="lunar.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
